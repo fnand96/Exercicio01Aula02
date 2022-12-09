@@ -10,16 +10,18 @@ public class App
     public static void main( String[] args ) {
 
         Scanner scanner = new Scanner(System.in);
+        Pessoa pessoa = new Pessoa();
+
         System.out.println("Digite seu nome");
-        String nome = scanner.next();
+        pessoa.nome = scanner.next();
 
         System.out.println("Digite seu Sobrenome");
-        String sobrenome = scanner.next();
+        pessoa.sobreNome = scanner.next();
 
         System.out.println("Digite a data do seu Nascimento no padrão dd/MM/yyyy");
-        LocalDate dataNascimento = LocalDate.parse(scanner.next(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        pessoa.dataNascimento = LocalDate.parse(scanner.next(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-        System.out.printf("Olá meu nome %s %s tenho %d anos %n " , nome, sobrenome, LocalDate.now().until(dataNascimento, ChronoUnit.YEARS) );
+        System.out.printf( pessoa.saudacao());
 
     }
 }
